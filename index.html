@@ -1,28 +1,26 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <title>Trabalho Final de Modelagem usando AR.js e A-frame com modelo 3D e marcador</title>
+    <title>aaa</title>
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    
-    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.min.js"></script>
   </head>
-  <body style="margin: 0px; overflow: hidden">
+  <body style="margin: 0; overflow: hidden;">
     <a-scene vr-mode-ui="enabled: false" embedded arjs="debugUIEnabled: false">
-      <a-assets>
-        <a-asset-item id="telefone" src="reieitura_animada.glb"></a-asset-item>
-      </a-assets>
+      <a-marker type="pattern" url="padrao2.patt">
+        <a-video src="video1.mp4" rotation="-90 0 0" width="1.78" height="1"></a-video>
+          <a-asset-item id="modelo" src="reieitura_animada.glb"></a-asset-item>
+      </a-marker>
 
       <a-marker type="pattern" url="pattern-olho.patt">
-        
-        <a-entity  
-          gltf-model="#telefone"  
-          position="0 0 0"  
-          rotation="90 0 0"  
-          scale="0.5 0.5 0.5"
-          animation-mixer>
-        </a-entity>
-
-      </a-marker>
+        <a-entity 
+        gltf-model="#modelo"
+        scale="0.5 0.5 0.5"
+        position="0 0 0"
+        rotation="0 0 0"
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 5000; easing: linear">
+      </a-entity>
+    </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
   </body>
